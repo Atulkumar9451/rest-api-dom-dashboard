@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern CSS Dashboard - Dynamic Data Layer</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="dashboard-layout">
+    <!-- Header Navigation -->
+    <header class="header">
+      <div class="header-brand">
+        <h1>Dashboard Analytics</h1>
+      </div>
+      <div class="cart-indicator">
+        <span>Cart Items:</span>
+        <span id="cart-count" class="badge">0</span>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="main-content" class="main-body">
+      
+      <!-- Accessible Error Banner (Initially Hidden) -->
+      <div id="error-banner" class="error-banner hidden" role="alert" aria-live="assertive" aria-hidden="true">
+        <span id="error-message">An error occurred while fetching data.</span>
+      </div>
+
+      <!-- Controls: Search, Category Tabs & Sorting -->
+      <section class="controls-section" aria-label="Dashboard Controls">
+        <div class="search-sort-group">
+          <input 
+            type="search" 
+            id="search-input" 
+            class="search-input" 
+            placeholder="Search products by title or description..." 
+            aria-label="Search products"
+          />
+          <select id="sort-select" class="sort-select" aria-label="Sort products">
+            <option value="default">Sort by: Default</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="rating">Highest Rated</option>
+          </select>
+        </div>
+
+        <!-- Dynamic Category Filter Tabs -->
+        <div id="category-tabs" class="category-tabs" role="tablist" aria-label="Categories">
+          <!-- JS will dynamically inject category buttons here -->
+        </div>
+      </section>
+
+      <!-- Dynamic Product Cards & Skeleton Grid -->
+      <section aria-label="Product Catalog">
+        <div id="product-grid" class="product-grid">
+          <!-- JS will render skeleton loading states or dynamic product cards here -->
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Async JavaScript Logic -->
+  <script src="js/app.js"></script>
+</body>
+</html>
